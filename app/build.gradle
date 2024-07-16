@@ -29,8 +29,10 @@ android {
 }
 
 dependencies {
+    // Use local packages
 //    implementation fileTree(dir: 'libs', include: ['*.aar','*.jar'], exclude:[])
 
+    // Use the Maven library
     implementation "com.eyeofcloud.ab:android-sdk:3.13.4"
     implementation("com.eyeofcloud.ab:core-api:3.1.1"){
         exclude group: 'javax.annotation'
