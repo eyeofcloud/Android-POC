@@ -55,21 +55,21 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                user.trackEvent("dianjilv1");
+                user.trackEvent("buy");
             }
         });
     }
 
     public void initEyeofcloud() {
         // change datafileHost
-        DatafileConfig.defaultHost = "http://116.198.11.124:8010";
+        DatafileConfig.defaultHost = "https://cdn.eyeofcloud.com";
         // change eventHost
-        EventFactory.EVENT_ENDPOINT = "http://116.198.11.124:8020/v1/events";
+        EventFactory.EVENT_ENDPOINT = "https://event.eyeofcloud.com/v1/events";
 
         EyeofcloudManager eyeofcloudManager = EyeofcloudManager.builder()
                 .withEventDispatchInterval(1L, TimeUnit.SECONDS)
                 .withDatafileDownloadInterval(15, TimeUnit.MINUTES)
-                .withSDKKey("21_05f247c0c3c80d0c")  //change sdk
+                .withSDKKey("1000563_ebf080bb426e7555")  //change sdk
                 .build(getApplicationContext());
         WorkerScheduler.requestOnlyWhenConnected = false;
         Map<String, Object> attributes = new HashMap<>();
