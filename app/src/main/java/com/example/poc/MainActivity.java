@@ -34,10 +34,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         initEyeofcloud();
-        EyeofcloudDecision decision = user.decide("xingye_shiyanyi"); //change flagKey
+        EyeofcloudDecision decision = user.decide("buy"); //change flagKey
         EyeofcloudJSON variables = decision.getVariables();
-        Object buttonText = variables.toMap().get("button_text");
-        Object buttonColor = variables.toMap().get("button_color");
+        Object buttonText = variables.toMap().get("string_variable");
 
         Button button = findViewById(R.id.button);
 
@@ -45,11 +44,6 @@ public class MainActivity extends AppCompatActivity {
         button.setText(buttonText != null ? buttonText.toString() : "编辑");
 
         int color = Color.parseColor("#6495ED");
-        try{
-            color = Color.parseColor(buttonColor != null ? buttonColor.toString() : "#6495ED");
-        }catch (Exception e){
-            // log exception
-        }
         button.setBackgroundColor(color);
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -69,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         EyeofcloudManager eyeofcloudManager = EyeofcloudManager.builder()
                 .withEventDispatchInterval(1L, TimeUnit.SECONDS)
                 .withDatafileDownloadInterval(15, TimeUnit.MINUTES)
-                .withSDKKey("1000563_ebf080bb426e7555")  //change sdk
+                .withSDKKey("1000122_2e2d7fbdea1afc51")  //change sdk
                 .build(getApplicationContext());
         WorkerScheduler.requestOnlyWhenConnected = false;
         Map<String, Object> attributes = new HashMap<>();
